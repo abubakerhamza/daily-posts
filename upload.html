@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Upload — Daily Posts</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header>
+  <h1>Upload today's posts</h1>
+  <p class="sub">Up to 10 posts a day. Each post is deleted automatically 24 hours after you upload it.</p>
+  <a class="btn ghost" href="index.html">← Back to feed</a>
+</header>
+
+<main>
+  <section class="card" id="setup-card">
+    <h2>First time setup (one minute)</h2>
+    <p>Paste your GitHub personal access token below. It is saved only in <b>this browser</b> — it is never sent anywhere except to GitHub. The token needs the <code>repo</code> scope (classic token) or Contents read/write (fine-grained token for this repo).</p>
+    <label>GitHub username / owner
+      <input type="text" id="owner" placeholder="e.g. abubakerhamza" autocomplete="off">
+    </label>
+    <label>Repository name
+      <input type="text" id="repo" placeholder="e.g. daily-posts" autocomplete="off">
+    </label>
+    <label>GitHub token
+      <input type="password" id="token" placeholder="ghp_…" autocomplete="off">
+    </label>
+    <button class="btn" id="save-setup">Save setup</button>
+    <p id="setup-status" class="status"></p>
+    <p class="hint">No token yet? GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic) → Generate new token → tick <code>repo</code>. Full steps are in README.md.</p>
+  </section>
+
+  <section class="card" id="upload-card" hidden>
+    <h2>Today's uploads <span id="today-count" class="pill">0 / 10</span></h2>
+    <div id="slots"></div>
+    <button class="btn" id="upload-all">Upload all</button>
+    <p id="upload-status" class="status"></p>
+  </section>
+</main>
+
+<script src="assets/app.js"></script>
+<script>
+  initUploadPage();
+</script>
+</body>
+</html>

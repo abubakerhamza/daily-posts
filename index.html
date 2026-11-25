@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Posts — 24 Hour Feed</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header>
+  <h1>Daily Posts</h1>
+  <p class="sub">10 posts a day. Every post disappears 24 hours after upload — photo and caption, gone.</p>
+  <a class="btn" href="upload.html">+ Upload today's posts</a>
+</header>
+
+<main id="feed">
+  <p id="loading">Loading posts…</p>
+</main>
+
+<footer>
+  <p>Posts are shown in their original size — no cropping, no resizing. Tap a photo to open it full size.</p>
+</footer>
+
+<script src="assets/app.js"></script>
+<script>
+  renderFeed(document.getElementById('feed'));
+</script>
+</body>
+</html>
