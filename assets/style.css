@@ -1,0 +1,92 @@
+/* Daily Posts — 24 hour feed. Plain, fast, mobile-first. */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #0f0f0f;
+  color: #f2f2f2;
+  font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+header { padding: 28px 16px 8px; text-align: center; }
+header h1 { margin: 0 0 6px; font-size: 28px; }
+.sub { color: #bdbdbd; margin: 0 0 16px; }
+.btn {
+  display: inline-block;
+  background: #f5c518;
+  color: #111;
+  font-weight: 700;
+  text-decoration: none;
+  border: none;
+  border-radius: 999px;
+  padding: 12px 22px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.btn.ghost { background: transparent; color: #f5c518; border: 1px solid #f5c518; }
+.btn:disabled { opacity: .45; cursor: not-allowed; }
+main { max-width: 720px; margin: 0 auto; padding: 16px; }
+footer { text-align: center; color: #8a8a8a; font-size: 13px; padding: 24px 16px 40px; }
+
+/* A post card — like the reference: photo full-bleed, big ALL CAPS headline
+   over the photo bottom, wordmark footer on the photo. Photo file itself is
+   untouched (original size, original quality); only the display fits the screen. */
+.post { background: #1a1a1a; border: 1px solid #2c2c2c; border-radius: 14px; overflow: hidden; margin-bottom: 24px; }
+.card-photo { position: relative; background: #000; }
+.card-photo img {
+  display: block;
+  width: 100%;
+  height: auto;       /* original aspect ratio kept */
+  cursor: zoom-in;
+}
+.card-photo::after {
+  content: "";
+  position: absolute; left: 0; right: 0; bottom: 0; height: 45%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.92));
+  pointer-events: none;
+}
+.card-photo .headline {
+  position: absolute; left: 16px; right: 16px; bottom: 46px; z-index: 2;
+  text-align: center;
+  font-size: 30px; line-height: 1.15; font-weight: 900;
+  text-transform: uppercase; letter-spacing: 0.5px; color: #fff;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+}
+.card-photo .wordmark {
+  position: absolute; left: 0; right: 0; bottom: 12px; z-index: 2;
+  display: flex; align-items: center; gap: 12px; padding: 0 24px;
+  color: #fff; font-size: 13px; font-weight: 700; letter-spacing: 4px;
+}
+.card-photo .wordmark::before, .card-photo .wordmark::after {
+  content: ""; flex: 1; height: 1px; background: rgba(255,255,255,0.65);
+}
+.post .body { padding: 14px 16px 16px; }
+.post .caption { margin: 0 0 10px; font-size: 16px; line-height: 1.5; white-space: pre-wrap; word-wrap: break-word; }
+.post .meta { color: #9a9a9a; font-size: 13px; display: flex; justify-content: space-between; gap: 8px; margin-bottom: 12px; }
+.post .meta .left { color: #f5c518; font-weight: 700; }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.actions button {
+  background: #262626; color: #f2f2f2; border: 1px solid #3a3a3a;
+  border-radius: 999px; padding: 8px 14px; font-size: 13px; font-weight: 600; cursor: pointer;
+}
+.actions button:hover { border-color: #f5c518; }
+.actions button.danger { color: #ff8a8a; border-color: #5a2b2b; }
+.empty { text-align: center; color: #9a9a9a; padding: 40px 0; }
+
+/* Upload page */
+.card { background: #1a1a1a; border: 1px solid #2c2c2c; border-radius: 14px; padding: 18px; margin-bottom: 20px; }
+.card h2 { margin: 0 0 10px; font-size: 20px; }
+label { display: block; margin: 12px 0; font-size: 14px; color: #d5d5d5; }
+input[type="text"], input[type="password"], textarea {
+  display: block; width: 100%; margin-top: 6px;
+  background: #111; color: #fff; border: 1px solid #3a3a3a;
+  border-radius: 10px; padding: 11px 12px; font-size: 15px; font-family: inherit;
+}
+textarea { min-height: 64px; resize: vertical; }
+.slot { border: 1px dashed #3a3a3a; border-radius: 12px; padding: 12px; margin-bottom: 12px; }
+.slot img { max-width: 100%; max-height: 260px; display: block; border-radius: 8px; margin: 8px 0; }
+.slot .name { font-size: 13px; color: #9a9a9a; word-break: break-all; }
+.pill { background: #f5c518; color: #111; border-radius: 999px; padding: 2px 10px; font-size: 14px; }
+.status { margin-top: 12px; font-size: 14px; line-height: 1.5; }
+.status.ok { color: #7ee2a0; }
+.status.err { color: #ff8a8a; }
+.hint { color: #9a9a9a; font-size: 13px; line-height: 1.5; }
+code { background: #111; border: 1px solid #333; border-radius: 6px; padding: 1px 6px; font-size: 13px; }
