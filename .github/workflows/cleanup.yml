@@ -1,0 +1,35 @@
+name: Delete posts older than 24 hours
+
+# Runs every hour. Any post whose uploadedAt is 24h+ old gets removed
+# from posts.json AND its image file is deleted from the repo.
+# The website itself also hides expired posts instantly on load,
+# so even between runs nothing old is ever shown.
+on:
+  schedule:
+    - cron: '0 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Remove expired posts
+        run: node .github/scripts/cleanup.mjs
+      - name: Commit if anything was removed
+        run: |
+          if ! git diff --quiet; then
+            git config user.name "daily-posts-bot"
+            git config user.email "daily-posts-bot@users.noreply.github.com"
+            git add -A
+            git commit -m "Auto-delete posts older than 24 hours"
+            git push
+          else
+            echo "Nothing expired."
+          fi
