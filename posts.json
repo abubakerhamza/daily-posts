@@ -1,1 +1,26 @@
-[]
+[
+  {
+    "file": "posts/mcdonalds.jpg",
+    "title": "The Fifteen Cent Burger That Changed America",
+    "caption": "Do you remember your first McDonalds? What did your meal cost back then? Tell us in the comments.",
+    "uploadedAt": "2026-11-25T18:51:00.000Z"
+  },
+  {
+    "file": "posts/thanksgiving.jpg",
+    "title": "Thanksgiving Dinner In 1940, Around One Table",
+    "caption": "What dish was always on your family's Thanksgiving table? Tell us in the comments.",
+    "uploadedAt": "2026-11-25T18:51:00.000Z"
+  },
+  {
+    "file": "posts/cars.jpg",
+    "title": "The Car Every Family Saved Up For",
+    "caption": "Be honest, which car did your family drive back then? Tell us in the comments.",
+    "uploadedAt": "2026-11-25T18:51:00.000Z"
+  },
+  {
+    "file": "posts/tv.jpg",
+    "title": "When The Whole Family Watched One Television",
+    "caption": "Be honest, which show did your family never miss? Tell us in the comments.",
+    "uploadedAt": "2026-11-25T18:51:00.000Z"
+  }
+]
